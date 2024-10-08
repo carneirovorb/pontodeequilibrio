@@ -5,27 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quadro AR com Câmera</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://cdn.8thwall.com/web/xrextras/xrextras.js"></script>
-    <script src="https://cdn.8thwall.com/web/aframe/8frame.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/master/aframe/build/aframe-ar.min.js"></script>
   </head>
   <body>
-    <!-- Define a cena de AR com a câmera ativa -->
-    <a-scene
-      embedded
-      xrweb
-      arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false"
-      vr-mode-ui="enabled: false"
-    >
-      <!-- Define o plano do quadro, posicionado à frente da câmera -->
+    <a-scene embedded vr-mode-ui="enabled: false" arjs="sourceType: webcam;">
+      <!-- Quadro sendo projetado na parede -->
       <a-plane
-        position="0 1.6 -2"
+        position="0 0 -3"
         rotation="0 0 0"
         width="1.5"
         height="1"
         material="src: #quadroImage"
       ></a-plane>
 
-      <!-- Assets (imagem do quadro) -->
+      <!-- Assets da imagem do quadro -->
       <a-assets>
         <img
           id="quadroImage"
@@ -34,7 +27,7 @@
       </a-assets>
 
       <!-- Câmera AR ativa -->
-      <a-entity camera look-controls></a-entity>
+      <a-entity camera></a-entity>
     </a-scene>
   </body>
 </html>
