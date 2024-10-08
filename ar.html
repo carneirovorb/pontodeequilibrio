@@ -5,21 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quadro AR</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://cdn.8thwall.com/web/xrextras/xrextras.js"></script>
-    <script src="https://cdn.8thwall.com/web/aframe/8frame.js"></script>
+    <script src="https://rawcdn.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <style>
-      #videoElement {
-        width: 100%;
-        height: 100vh;
+      body,
+      html {
+        margin: 0;
+        overflow: hidden;
+        height: 100%;
+        background-color: black;
       }
     </style>
   </head>
   <body>
-    <video autoplay="true" id="videoElement"></video>
     <a-scene
-      xrweb
-      environment="preset: default"
-      arjs="sourceType: webcam; videoTexture: true"
+      vr-mode-ui="enabled: false"
+      embedded
+      arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;"
     >
       <!-- Quadro na parede -->
       <a-entity
@@ -36,23 +37,9 @@
           src="https://carneirovorb.github.io/pontodeequilibrio/img/quadroar.png"
         />
       </a-assets>
+
+      <!-- Configuração de câmera para AR -->
+      <a-camera></a-camera>
     </a-scene>
-
-    <script>
-      // Obter o elemento de vídeo
-      var video = document.querySelector("#videoElement");
-
-      // Verificar se o navegador suporta getUserMedia
-      if (navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices
-          .getUserMedia({ video: true })
-          .then(function (stream) {
-            video.srcObject = stream; // Definir a fonte do vídeo como o feed da webcam
-          })
-          .catch(function (err) {
-            console.log("Algo deu errado: " + err);
-          });
-      }
-    </script>
   </body>
 </html>
