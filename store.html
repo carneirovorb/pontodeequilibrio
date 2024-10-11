@@ -46,6 +46,9 @@
     <link rel="stylesheet" href="css/theme.min.css" />
 
     <style>
+      #categoryTabs {
+        height: 100px;
+      }
       .tab-icon-menu {
         display: flex;
         overflow-x: auto;
@@ -76,20 +79,16 @@
       }
 
       .tab-icon-menu .nav-link.active {
-        background: rgba(
-          0,
-          0,
-          0,
-          0.1
-        ); /* Fundo com transparência para a opção ativa */
+        box-shadow: 0px 15px 11px -11px rgba(0, 0, 0, 0.3); /* Sombra projetada na parte inferior */
         color: #000; /* Cor do texto da opção ativa */
+        background: transparent; /* Remove o fundo */
+        transition: box-shadow 0.3s ease; /* Suaviza a transição da sombra */
       }
 
-      .tab-icon-menu .nav-link:hover {
-        background: rgba(0, 0, 0, 0.05); /* Efeito de hover leve */
-        color: #000; /* Cor do texto no hover */
+      .tab-icon-menu .nav-link {
+        background: transparent; /* Sem fundo */
+        border: none; /* Remove bordas padrão */
       }
-
       /* inter-300 - latin */
       @font-face {
         font-family: "Inter";
